@@ -1,6 +1,5 @@
 def print_number(num):
-    print(num, end='') #end='' убирает перенос строки
-
+    print(num, end='')  # end='' убирает перенос строки
 print_number(8)
 print_number(8)
 print_number(0)
