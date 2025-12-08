@@ -1,6 +1,6 @@
 from smartphone import Smartphone
 
-#создала список смартофонов
+# создала список смартофонов
 catalog = [
     Smartphone("Samsung Galaxy", "A25", "+79131111110"),
     Smartphone("Motorola Moto", "G34", "+79131111111"),
@@ -9,6 +9,6 @@ catalog = [
     Smartphone("Xiaomi Poco", "M6 Pro", "+79131111114")
 ]
 
-#печать списка смартфонов
+# печать списка смартфонов
 for smartphone in catalog:
-    print(f"{smartphone.brand} - {smartphone.model} - {smartphone.number}") 
+    print(f"{smartphone.brand} - {smartphone.model} - {smartphone.number}")
