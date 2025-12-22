@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException, NoSuchElementException
+from selenium.common.exceptions import TimeoutException
 
 # Инициализация драйвера
 driver = webdriver.Chrome()
@@ -29,10 +29,6 @@ try:
 
 except TimeoutException:
     print("Ошибка: Элемент не появился в течение 10 секунд.")
-except NoSuchElementException:
-    print("Ошибка: Кнопка не найдена.")
-except Exception as e:
-    print(f"Произошла непредвиденная ошибка: {e}")
 
 finally:
     # Корректное закрытие браузера
