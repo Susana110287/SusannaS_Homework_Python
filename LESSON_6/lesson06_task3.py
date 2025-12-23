@@ -18,7 +18,7 @@ try:
 
     # 2. Ждём все изображения
     WebDriverWait(driver, 15).until(
-        EC.visibility_of_all_elements_located((By.TAG_NAME, "img"))
+        EC.visibility_of_element_located((By.ID, "image-container"))
     )
 
     # 3. Ищем именно 3‑ю картинку
