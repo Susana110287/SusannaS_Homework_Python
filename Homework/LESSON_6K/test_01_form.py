@@ -51,5 +51,6 @@ class TestDataTypesFormSubmission:
 
         # Ждём завершения обработки формы
         wait = WebDriverWait(browser, 10)
-        wait.until(
-            EC.url_changes("https://bonigarcia.dev/selenium-webdriver-java/data-types-submitted.html"))
+        wait.until(EC.url_changes(
+            "https://bonigarcia.dev/selenium-webdriver-java" +
+            "/data-types-submitted.html"))
