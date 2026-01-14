@@ -38,10 +38,13 @@ class InventoryPage:
         item_container = self.wait.until(
             EC.presence_of_element_located(
                 (By.XPATH,
-                 f"//div[@class='inventory_item' and .//div[text()='{item_name}']]")
+                 f"//div[@class='inventory_item' and "
+                 f".//div[text()='{item_name}']]")
             )
         )
-        add_button = item_container.find_element(By.CLASS_NAME, "btn_inventory")
+        add_button = item_container.find_element(
+            By.CLASS_NAME, "btn_inventory"
+            )
         add_button.click()
 
     def go_to_cart(self):
