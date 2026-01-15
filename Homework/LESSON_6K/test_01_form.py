@@ -17,7 +17,7 @@ class TestDataTypesFormSubmission:
         # Открываем главную страницу
         browser.get(
             "https://bonigarcia.dev/selenium-webdriver-java/data-types.html"
-            )
+        )
 
         # Поиск элементов формы
         first_name_field = browser.find_element(By.NAME, "first-name")
@@ -32,7 +32,7 @@ class TestDataTypesFormSubmission:
         company_field = browser.find_element(By.NAME, "company")
         submit_button = browser.find_element(
             By.CSS_SELECTOR, ".btn.btn-outline-primary.mt-3"
-            )
+        )
 
         # Заполняем поля
         first_name_field.send_keys("Иван")
@@ -49,8 +49,27 @@ class TestDataTypesFormSubmission:
         # Отправляем форму
         submit_button.click()
 
-        # Ждём завершения обработки формы
+        # Ждём завершения обработки формы и появления уведомления об успехе
         wait = WebDriverWait(browser, 10)
-        wait.until(EC.url_changes(
-            "https://bonigarcia.dev/selenium-webdriver-java" +
-            "/data-types-submitted.html"))
+        wait.until(EC.presence_of_element_located((
+            By.CSS_SELECTOR, ".alert-success"
+            )))
+
+        # Проверяем поле Zip code — должно быть красным (danger)
+        zip_element = browser.find_element(By.ID, "zip-code")
+        assert "danger" in zip_element.get_attribute("class"), (
+            "Поле Zip code должно быть подсвечено красным (класс danger)"
+        )
+
+        # Проверяем остальные поля — должны быть зелёными (success)
+        fields_to_check = [
+            "first-name", "last-name", "address", "e-mail", "phone",
+            "city", "country", "job-position", "company"
+        ]
+
+        for field_id in fields_to_check:
+            element = browser.find_element(By.ID, field_id)
+            assert "success" in element.get_attribute("class"), (
+                f"Поле {field_id} должно "
+                f"быть подсвечено зелёным (класс success)"
+            )
