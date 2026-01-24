@@ -10,7 +10,7 @@ USERS = {"0abc98f7-5c87-4694-a33d-567c2a60df6b": "admin"}
 
 def test_create_project():
     payload = {
-        "title": "Автотест_Проект_2026",
+        "title": "",
         "users": USERS
     }
     headers = {
